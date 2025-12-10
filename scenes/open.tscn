@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvewt5ubu3wir"]
+
+[ext_resource type="PackedScene" uid="uid://7et48250f7h6" path="res://Models/GLB format/open.glb" id="1_qpxdn"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vt6gf"]
+data = PackedVector3Array(0.5, 0.0633, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0.0633, 0.5, 0.5, 0.0633, 0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, 0.5, 0.0633, 0.5, 0.5, 0.0633, -0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0.0633, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0.0633, -0.5, -0.5, 0.0633, -0.5, -0.5, 0.0633, 0.5, -0.5, 0, 0.5, -0.5, 0.0633, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0.0633, -0.5, -0.5, 0.0633, -0.5, -0.5, 0.0633, -0.5, 0.5, 0.0633, -0.5, 0.5, 0.0633, 0.5, 0.5, 0.0633, 0.5, -0.5, 0.0633, 0.5, -0.5, 0.0633, -0.5)
+
+[node name="open2" instance=ExtResource("1_qpxdn")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="open" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="open/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_vt6gf")

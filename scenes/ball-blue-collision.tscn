@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://doddxc3yaf0o7"]
+
+[ext_resource type="PackedScene" uid="uid://cwds2kxpikq0p" path="res://Models/GLB format/ball-blue.glb" id="1_3laas"]
+[ext_resource type="Script" uid="uid://ll1ukb1sh4vy" path="res://scripts/ball_rigid_body_3d.gd" id="1_67282"]
+[ext_resource type="Script" uid="uid://2xxtbtj1rs3" path="res://scripts/camera_follow.gd" id="2_eghut"]
+[ext_resource type="Script" uid="uid://dfanedxwqdt1b" path="res://scripts/camera_3d.gd" id="2_ql1jd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_67282"]
+friction = 0.01
+rough = true
+bounce = 0.25
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ql1jd"]
+radius = 0.1
+
+[node name="rididbody3d" type="RigidBody3D" groups=["ball"]]
+collision_layer = 3
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_67282")
+continuous_cd = true
+linear_damp = 1.0
+script = ExtResource("1_67282")
+charge_speed = 20.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, 0, 0)
+shape = SubResource("SphereShape3D_ql1jd")
+
+[node name="ball-blue2" parent="." instance=ExtResource("1_3laas")]
+
+[node name="CameraPivot" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("2_eghut")
+target = NodePath("..")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+current = true
+script = ExtResource("2_ql1jd")
