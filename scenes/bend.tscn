@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1gtp0nw0l8or"]
+
+[ext_resource type="PackedScene" uid="uid://bg1o63lbr85v7" path="res://Models/GLB format/spline-default-straight-bend.glb" id="1_3hweh"]
+
+[node name="spline-default-straight-bend2" instance=ExtResource("1_3hweh")]

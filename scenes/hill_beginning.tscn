@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfuq18gvmtpmk"]
+
+[ext_resource type="PackedScene" uid="uid://c8txn3uyf74du" path="res://Models/GLB format/spline-default-straight-hill-beginning.glb" id="1_mh70x"]
+
+[node name="spline-default-straight-hill-beginning2" instance=ExtResource("1_mh70x")]

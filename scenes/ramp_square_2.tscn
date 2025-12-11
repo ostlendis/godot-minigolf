@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://chpofesss6g55"]
+
+[ext_resource type="PackedScene" uid="uid://b4fabpyfgmmym" path="res://Models/GLB format/ramp-square.glb" id="1_uc4pq"]
+
+[node name="ramp-square2" instance=ExtResource("1_uc4pq")]

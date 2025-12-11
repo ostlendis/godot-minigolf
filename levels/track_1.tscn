@@ -1,16 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://clca5byuv15el"]
+[gd_scene load_steps=11 format=3 uid="uid://clca5byuv15el"]
 
 [ext_resource type="PackedScene" uid="uid://cj5waexngli54" path="res://scenes/straight-collision.tscn" id="1_x358x"]
 [ext_resource type="PackedScene" uid="uid://dtdylh18fcbfa" path="res://scenes/hole_square.tscn" id="2_pl2bc"]
 [ext_resource type="PackedScene" uid="uid://ckcw1qrx43iwc" path="res://scenes/end.tscn" id="4_cotei"]
 [ext_resource type="PackedScene" uid="uid://doddxc3yaf0o7" path="res://scenes/ball-blue-collision.tscn" id="4_pl2bc"]
 [ext_resource type="Script" uid="uid://lhrvu5o1m65" path="res://scripts/hole_area.gd" id="5_cotei"]
+[ext_resource type="PackedScene" uid="uid://b6qv1m162t7ap" path="res://scenes/skew_corner.tscn" id="6_8kye6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pl2bc"]
 height = 0.005
 radius = 0.06
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8kye6"]
+
+[sub_resource type="Sky" id="Sky_u6chn"]
+sky_material = SubResource("ProceduralSkyMaterial_8kye6")
+
+[sub_resource type="Environment" id="Environment_pi5kf"]
+background_mode = 2
+sky = SubResource("Sky_u6chn")
+
 [node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.9799247, 0.1993682, 8.71466e-09, 0, -4.371139e-08, 1, 0.1993682, 0.9799247, 4.2833868e-08, 0, 0, 0)
+light_color = Color(1, 1, 0.84705883, 1)
+shadow_enabled = true
 
 [node name="straight2" parent="." instance=ExtResource("1_x358x")]
 
@@ -26,10 +41,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32, 0.01)
 shape = SubResource("CylinderShape3D_pl2bc")
 
 [node name="end2" parent="." instance=ExtResource("4_cotei")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -1)
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, -2, 0, -3)
 
 [node name="rididbody3d" parent="end2" instance=ExtResource("4_pl2bc")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 8.742276e-09, 0.1, -0.099999964)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3, -1.3113416e-07)
+[node name="skew-corner2" parent="." instance=ExtResource("6_8kye6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -1)
+
+[node name="straight3" parent="." instance=ExtResource("1_x358x")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1, 0, -1)
+
+[node name="skew-corner3" parent="." instance=ExtResource("6_8kye6")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 0, -1)
+
+[node name="straight4" parent="." instance=ExtResource("1_x358x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pi5kf")

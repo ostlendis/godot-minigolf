@@ -9,4 +9,5 @@ func _ready() -> void:
 func _on_body_entered(body):
 	if body.is_in_group("ball"):
 		print("ball in hole")
+		await get_tree().create_timer(2.0).timeout
 		GameState.load_next_level()

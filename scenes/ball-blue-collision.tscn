@@ -11,14 +11,16 @@ rough = true
 bounce = 0.25
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ql1jd"]
+margin = 0.03
 radius = 0.1
 
 [node name="rididbody3d" type="RigidBody3D" groups=["ball"]]
 collision_layer = 3
-mass = 0.1
+mass = 0.01
 physics_material_override = SubResource("PhysicsMaterial_67282")
 continuous_cd = true
-linear_damp = 1.0
+linear_damp = 0.8
+angular_damp = 0.05
 script = ExtResource("1_67282")
 charge_speed = 20.0
 

@@ -18,12 +18,15 @@ var total_shots := 0:
 var levels := [
 	"res://levels/track_1.tscn",
 	"res://levels/track_2.tscn",
-	#"res://levels/track_3.tscn"
+	"res://levels/track_3.tscn"
 ]
 
 func reset_shots():
 	shots = 0
 
+func reset_total_shots():
+	total_shots = 0
+	
 func add_shot():
 	shots += 1
 	total_shots += 1
@@ -31,12 +34,19 @@ func add_shot():
 func restart_level():
 	get_tree().change_scene_to_file(levels[current_level])
 	reset_shots()
+	
+func restart_game():
+	reset_shots()
+	reset_total_shots()
+	get_tree().change_scene_to_file("res://levels/track_1.tscn")
+	HUD.visible = true
 
 func load_next_level():
 	current_level += 1
 	if current_level >= levels.size():
 		print("Game finished!")
 		# load end screen
+		HUD.visible = false
 		get_tree().change_scene_to_file("res://ui/end_screen.tscn")
 	else:
 		print("Loading level:", current_level)

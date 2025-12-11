@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=3 uid="uid://ctpdrcciuv3ko"]
+
+[ext_resource type="PackedScene" uid="uid://ckcw1qrx43iwc" path="res://scenes/end.tscn" id="1_7vrgd"]
+[ext_resource type="PackedScene" uid="uid://doddxc3yaf0o7" path="res://scenes/ball-blue-collision.tscn" id="2_j3o57"]
+[ext_resource type="PackedScene" uid="uid://dtdylh18fcbfa" path="res://scenes/hole_square.tscn" id="3_f28y2"]
+[ext_resource type="Script" uid="uid://lhrvu5o1m65" path="res://scripts/hole_area.gd" id="4_5c06t"]
+[ext_resource type="PackedScene" uid="uid://cjbv2od30c0fw" path="res://scenes/large_bump.tscn" id="5_ewy0j"]
+[ext_resource type="PackedScene" uid="uid://b7fu1iirql85p" path="res://scenes/double_gates.tscn" id="6_nqotr"]
+[ext_resource type="PackedScene" uid="uid://cj5waexngli54" path="res://scenes/straight-collision.tscn" id="7_iu3pd"]
+[ext_resource type="PackedScene" uid="uid://yr4hrn6fpvif" path="res://scenes/obstacle_diamond.tscn" id="9_8hy13"]
+[ext_resource type="PackedScene" uid="uid://b6qv1m162t7ap" path="res://scenes/skew_corner.tscn" id="10_ghao0"]
+[ext_resource type="PackedScene" uid="uid://dba70pxvdt7dg" path="res://scenes/round_corner.tscn" id="11_eef61"]
+[ext_resource type="PackedScene" uid="uid://e8iaew5c3gbb" path="res://scenes/obstacle_triangle.tscn" id="12_y14h1"]
+[ext_resource type="PackedScene" uid="uid://d3mc3micfu4r7" path="res://scenes/hill_square.tscn" id="13_q5nie"]
+[ext_resource type="PackedScene" uid="uid://chpofesss6g55" path="res://scenes/ramp_square_2.tscn" id="14_8hy13"]
+[ext_resource type="PackedScene" uid="uid://snirynxkgscj" path="res://scenes/castle.tscn" id="14_84up4"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8hy13"]
+height = 0.005
+radius = 0.06
+
+[node name="Node3D" type="Node3D"]
+
+[node name="end2" parent="." instance=ExtResource("1_7vrgd")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4.371139e-08, -0.1, 2.5)
+
+[node name="rididbody3d" parent="." instance=ExtResource("2_j3o57")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+
+[node name="hole-square2" parent="." instance=ExtResource("3_f28y2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, 0, 14)
+
+[node name="Area3D" type="Area3D" parent="hole-square2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3499999, -0.007999897)
+script = ExtResource("4_5c06t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hole-square2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32, 0.01)
+shape = SubResource("CylinderShape3D_8hy13")
+
+[node name="spline-default-straight-bump-up2" parent="." instance=ExtResource("5_ewy0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90000004, 3)
+
+[node name="structure-gates2" parent="." instance=ExtResource("6_nqotr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 8.5)
+
+[node name="straight2" parent="." instance=ExtResource("7_iu3pd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 7.5)
+
+[node name="straight3" parent="." instance=ExtResource("7_iu3pd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 8.5)
+
+[node name="straight4" parent="." instance=ExtResource("7_iu3pd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 9.5)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.3711385e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 0, -1, 5.7182837, 4.4053416)
+
+[node name="straight7" parent="." instance=ExtResource("7_iu3pd")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1, 0, 14)
+
+[node name="obstacle-diamond2" parent="." instance=ExtResource("9_8hy13")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 14)
+
+[node name="skew-corner2" parent="." instance=ExtResource("10_ghao0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14)
+
+[node name="straight8" parent="." instance=ExtResource("7_iu3pd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 15)
+
+[node name="round-corner-a2" parent="." instance=ExtResource("11_eef61")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 16)
+
+[node name="round-corner-a3" parent="." instance=ExtResource("11_eef61")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 0, 16)
+
+[node name="obstacle-triangle2" parent="." instance=ExtResource("12_y14h1")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -4, 0, 14)
+
+[node name="straight9" parent="." instance=ExtResource("7_iu3pd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 15)
+
+[node name="straight10" parent="." instance=ExtResource("7_iu3pd")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3, 0, 16)
+
+[node name="hill-square2" parent="." instance=ExtResource("13_q5nie")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3, 0, 14)
+
+[node name="castle2" parent="." instance=ExtResource("14_84up4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5, 0, 14)
+
+[node name="straight5" parent="." instance=ExtResource("7_iu3pd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13)
+
+[node name="straight6" parent="." instance=ExtResource("7_iu3pd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 12.25)
+
+[node name="ramp-square2" parent="." instance=ExtResource("14_8hy13")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 10.5)

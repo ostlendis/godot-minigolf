@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://beqd7m1wabb0i"]
+
+[ext_resource type="Script" uid="uid://mn5ke5h66521" path="res://scripts/end_screen.gd" id="1_70k24"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d2olf"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_70k24"]
+font_size = 40
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_70k24")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.132116, 0.32059324, 0.020998383, 1)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="text" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.29200003
+anchor_top = 0.45700002
+anchor_right = 0.62700003
+anchor_bottom = 0.54200006
+offset_left = -0.3840332
+offset_top = -0.13601685
+offset_right = -0.3040161
+offset_bottom = -0.21603394
+grow_horizontal = 2
+grow_vertical = 2
+text = "Total Shots Needed:"
+label_settings = SubResource("LabelSettings_d2olf")
+
+[node name="totalshots" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.646
+anchor_top = 0.45700002
+anchor_right = 0.694
+anchor_bottom = 0.54200006
+offset_left = -0.1920166
+offset_top = -0.13601685
+offset_right = 0.5119629
+offset_bottom = -0.21603394
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_70k24")
+
+[node name="playagain" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 100.0
+offset_right = 64.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play Again"
+
+[connection signal="pressed" from="Panel/playagain" to="." method="_on_playagain_pressed"]
