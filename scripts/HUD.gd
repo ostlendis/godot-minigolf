@@ -1,5 +1,5 @@
 extends CanvasLayer
-@onready var power_label : Label = $Control/PowerLabel
+@onready var power_bar : ProgressBar = $Control/PowerBar
 @onready var level_shot_count_label : Label = $Control/TrackShotCountLabel
 @onready var total_shot_count_label : Label = $Control/TotalShotCountLabel
 

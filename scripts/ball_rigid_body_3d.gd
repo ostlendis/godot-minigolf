@@ -35,13 +35,15 @@ func _physics_process(delta):
 	if is_still():
 		linear_velocity = Vector3.ZERO
 		angular_velocity = Vector3.ZERO
+		HUD.power_bar.value = 0
 		if GameState.shots > 8:
 			GameState.load_next_level()
 		
 	if charging:
 		shot_power += charge_speed * delta
 		shot_power = clamp(shot_power, 0.0, max_power)
-		HUD.power_label.text = str(round(shot_power))
+		HUD.power_bar.modulate = Color(1, 1-shot_power/max_power,0)
+		HUD.power_bar.value = round(shot_power)
 		# optional: print("Power:", shot_power)
 	
 	if global_transform.origin.y < fall_reset_height:
@@ -65,7 +67,7 @@ func shoot_ball():
 	GameState.shots += 1
 	GameState.total_shots += 1
 
-	apply_impulse(direction * shot_power/400)
+	apply_impulse(direction * shot_power/350)
 	
 func is_still():
 	return (linear_velocity.length() < 0.03 and angular_velocity.length() < 0.8) or linear_velocity.length() < 0.005

@@ -52,12 +52,3 @@ func load_next_level():
 		print("Loading level:", current_level)
 		get_tree().change_scene_to_file(levels[current_level])
 		reset_shots()
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
