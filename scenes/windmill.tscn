@@ -6,4 +6,5 @@
 [node name="windmill" instance=ExtResource("1_nxy7k")]
 
 [node name="blades" parent="windmill" index="0"]
+transform = Transform3D(1.0080035, 0, 0, 0, 1.0084456, 0, 0, 0, 1, 8.785951e-10, 0.9566486, -0.44579)
 script = ExtResource("2_x5wes")

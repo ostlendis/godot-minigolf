@@ -13,17 +13,17 @@ radius = 0.06
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8kye6"]
 
-[sub_resource type="Sky" id="Sky_u6chn"]
+[sub_resource type="Sky" id="Sky_8kye6"]
 sky_material = SubResource("ProceduralSkyMaterial_8kye6")
 
 [sub_resource type="Environment" id="Environment_pi5kf"]
 background_mode = 2
-sky = SubResource("Sky_u6chn")
+sky = SubResource("Sky_8kye6")
 
 [node name="Node3D" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.9799247, 0.1993682, 8.71466e-09, 0, -4.371139e-08, 1, 0.1993682, 0.9799247, 4.2833868e-08, 0, 0, 0)
+transform = Transform3D(-0.9799247, 0.1993682, 8.71466e-09, 0, -4.371139e-08, 1, 0.1993682, 0.9799247, 4.2833864e-08, 0, 0.9320595, 0)
 light_color = Color(1, 1, 0.84705883, 1)
 shadow_enabled = true
 

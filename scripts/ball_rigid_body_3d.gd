@@ -68,4 +68,4 @@ func shoot_ball():
 	apply_impulse(direction * shot_power/400)
 	
 func is_still():
-	return (linear_velocity.length() < 0.05 and angular_velocity.length() < 0.8) or linear_velocity.length() < 0.01
+	return (linear_velocity.length() < 0.03 and angular_velocity.length() < 0.8) or linear_velocity.length() < 0.005
